@@ -1,0 +1,17 @@
+.App{
+    display: flex;
+    min-width: 100vw;
+    min-height: 100vh;
+    flex-direction: column;
+    
+}
+
+.myContainer{
+     flex-grow: 1;
+     background-image: url('./Assets/images/bgF2s.jpg');
+     margin: 0;
+     background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}

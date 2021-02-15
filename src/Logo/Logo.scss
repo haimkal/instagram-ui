@@ -1,0 +1,187 @@
+ 
+  /*---camera frame---*/
+  .camera {
+    background: linear-gradient(to right, rgb(234, 75, 136), rgb(287, 105, 188), rgb(287, 105, 188),      rgb(287, 105, 188), rgb(287, 105, 188), rgb(234, 75, 136));
+      width: 500px;
+      height: 300px;
+      margin: 160px 60px;
+      border-radius: 15px;
+      position: relative;
+      // display: none;
+      animation: cameraBounce 560ms linear 6;
+      transform-origin: 50% 50%;
+      @media only screen and (min-width: 668px) {
+        .camera {
+            display: block;
+        }
+      }
+  }
+  
+  /*----Stripe on the camera----*/
+  .camera::before {
+    content: ' ';
+    position: absolute;
+    top: 100px;
+    width: 500px;
+    height: 110px;
+    background: linear-gradient(to right, rgb(0, 33, 255), rgb(0, 150, 275), rgb(5, 150, 275), rgb(5, 150, 275),rgb(5, 150, 275), rgb(0, 33, 255)); 
+  }
+  
+  /*----lens frame----*/
+    .camLens {
+        position: absolute;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        margin: auto;
+        width: 242px;
+        height: 242px;
+        border-radius: 50%;
+        background: rgb(206, 206, 206);
+        border: 16px solid rgb(232, 232, 232);
+        box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0.6);
+    }
+  /*--- inner lens ---*/
+      .camLens::before {
+        content:" ";
+        position: absolute;
+        right: 0;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        width: 130px;
+        height: 130px;
+        border-radius: 50%;
+        background: rgb(34, 175, 235);
+        border: 38px solid rgb(62, 62, 62)
+       
+        
+        }
+  
+  .camLens::after{
+    content: " ";
+    position: absolute;
+    left: 80px;
+    top: 80px;
+    width: 36px;
+    height: 36px;
+    background: rgba(155, 225, 255, 0.571);
+    border-radius: 50%;
+  }
+
+  ::after, ::before{
+    box-sizing: content-box;
+  }
+  
+  /*---button---*/
+  .camButton{
+    position: absolute;
+    top: -20px;
+    left: 30px;
+    width: 70px;
+    height: 20px;
+    background: rgb(0, 92, 255);
+    border-radius: 20px 20px 5px 5px
+  }
+  .camButton::before {
+    content: " ";
+    position: absolute;
+    top: -4px;
+    left: 11px;
+    width: 48px;
+    height: 4px;
+    background: white;
+    border-radius:20px 20px 0 0;
+  }
+  
+  .flash {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -57px;
+    margin: auto;
+    width: 126px; 
+    height: 57px;
+    background: rgb(0, 92, 255);
+    border-radius: 20px 20px 0 0;
+  }
+  
+  .right-corner {
+     position: absolute;
+     left: 90px;
+     right:0;
+     top: 2px;
+     margin: auto;
+     width: 60px;
+     height: 100px;
+     background: rgb(0, 92, 255);
+    border-radius: 20px;
+     z-index: -1; 
+    transform: rotate(-25deg);
+  }
+  
+  
+  .left-corner {
+     position: absolute;
+     right:88px;
+     top: 2px;
+     margin: auto;
+     width: 60px;
+     height: 100px;
+     background: rgb(0, 92, 255);
+    border-radius: 20px;
+     z-index: -1; 
+    transform: rotate(25deg);
+  }
+  
+   .flash::before{
+            content:' ';
+            position: absolute;
+            left: 0;
+            right: 0;
+            top:0;
+            bottom: 0;
+            margin: auto;
+            width: 120px;
+            height: 30px;
+            background: rgb(206, 206, 206);
+            border-radius: 10px;
+       }
+       .flash::after{
+            content:' ';
+            position: absolute;
+            left: 0;
+            right: 0;
+            top:0;
+            bottom: 0;
+            margin: auto;
+            width: 40px;
+            height: 15px;
+            background: rgb(0, 33, 255);
+            border-radius: 3px;
+       }
+  
+ 
+  /*---animation---*/
+  
+    @keyframes cameraBounce {
+     0% {
+      transform: translateY(8%) scale(1.1, 0.9) rotate(0deg);
+    }
+    25% {
+      transform: translateY(-26%) scale(0.8, 1.2) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-30%) scale(1, 1) rotate(0deg);
+    }
+    60% {
+      transform: translateY(-28%) scale(1, 1) rotate(0deg);
+    }
+    100% {
+      transform: translateY(8%) scale(1.1, 0.9) rotate(0deg);
+    }
+  }
+  
+  
+  

@@ -1,0 +1,99 @@
+.Animation {
+    position: absolute;
+    display: none;
+}
+@media only screen and (min-width: 800px) {
+    .Animation {
+        display: block;
+    }
+}
+.pic1 {
+    position: absolute;
+    animation: ani1 2s linear 1;
+    left: 150px;
+    top: 50px;
+    z-index: 1;
+    transform: rotate(-10deg);
+}
+.pic2 {
+    position: absolute;
+    animation: ani2 2s linear 1;
+    left:150px;
+    top: 260px;
+    z-index: 2;
+    transform: rotate(10deg);
+}
+.pic3 {
+    position: absolute;
+    animation: ani3 2s linear 1;
+    left: -800px;
+    top: 180px;
+    z-index: 3;
+    transform: rotate(-16deg);
+ 
+}
+
+@keyframes ani1 {
+    0% {
+        left: 150px;
+        top: 600px;
+        opacity: 0;
+    }
+
+      50%   {
+          left:150px; 
+          top:200px; 
+          opacity: 0;
+        }
+
+    100% {
+        left: 150px;
+        top: 50px;
+        opacity: 1;
+    }
+}
+
+@keyframes ani2 {
+    0% {
+        left: 150px;
+        top: 600px;
+        transform: rotate(10deg);
+        opacity: 0;
+    }
+
+    50% {
+        left: 150px;
+        top: 300px;
+        transform: rotate(10deg);
+        opacity: 0;
+    }
+
+    100% {
+        left: 150px;
+        top: 260px;
+        transform: rotate(10deg);
+        opacity:1;
+    }
+}
+
+@keyframes ani3 {
+    0% {
+
+        left: -800px;
+        top: 600px;
+        transform: rotate(0deg);
+        opacity: 0;
+    }
+    50% {
+        left: -800px;
+        top: 500px;
+        transform: rotate(0deg);
+        opacity: 0;
+    }
+
+    100% {
+        left: -800px;
+        top: 180px;
+        opacity: 1;
+    }
+}
