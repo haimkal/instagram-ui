@@ -3,15 +3,15 @@ import './Logo.scss';
 export default function logo() {
     return (
     <div>        
-        <div class="containerLogo">
-                <div class="camera">
-                    <div class="camLens center"></div>
-                    <div class="camButton"></div>
-                    <div class="flash">
-                        <div class="right-corner"></div>
-                        <div class="left-corner"></div>
+        <div className="containerLogo">
+                <div className="camera">
+                    <div className="camLens center"></div>
+                    <div className="camButton"></div>
+                    <div className="flash">
+                        <div className="right-corner"></div>
+                        <div className="left-corner"></div>
                     </div>
-                    <div class="shadow"></div>
+                    <div className="shadow"></div>
                 </div>    
                 
         </div>

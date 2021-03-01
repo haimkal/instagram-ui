@@ -7,13 +7,11 @@
       margin: 160px 60px;
       border-radius: 15px;
       position: relative;
-      // display: none;
+      display: none;
       animation: cameraBounce 560ms linear 6;
       transform-origin: 50% 50%;
       @media only screen and (min-width: 668px) {
-        .camera {
             display: block;
-        }
       }
   }
   

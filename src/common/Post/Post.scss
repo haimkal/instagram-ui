@@ -1,0 +1,44 @@
+.post{
+    
+    padding: 2%;
+    width: 50%;
+    background-color: #ffffff;
+    margin: 20px;
+    border-radius: 1em;
+    border: 2px solid #b8b8b8;
+   
+
+    &__avatarAndName {
+        width: 100%;
+        height: auto;
+        position: relative;
+        display: inline;
+        background-color: #fc687c;
+        border-radius: .3em;
+        font-size: 2vw;
+    }
+    
+    &__createdAt {
+        position: relative;
+        padding: .3em .5em;
+        margin-right: .5em;
+        font-size: 1vw;
+
+        &--active {
+            font-weight: bold;
+        }
+    }
+
+    &__image {
+        position: relative;
+        width: 100%;
+        height: auto;
+        border-radius: 0 0 1em 1em;
+    }
+    
+    &__des{
+        position: relative;
+        font-size: 2vw;
+    }
+
+}

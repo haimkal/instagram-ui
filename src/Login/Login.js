@@ -1,38 +1,36 @@
 import { ErrorMessage } from 'formik';
-import React from 'react';
+import React, { useState, useContext } from 'react';
 import Cookies from 'js-cookie';
-import {useHistory } from 'react-router-dom';
+import {Link, useHistory } from 'react-router-dom';
 import  {loginSchema} from './login.schema';
 import {Form, Formik, Field} from 'formik';
-import { useState } from 'react';
 import {H2, LABEL} from '../StylesComponent/StylesComponent';
 import PhotoAnimation from '../PhotoAnimation/PhotoAnimation';
 import './Login.scss';
+import { UserService } from '../services/user.service';
+import { UserContext } from '../user-context';
 
 export default function Login() {
 
     const history = useHistory();
+    const {setUser} = useContext(UserContext);
     const [showError, setShowError]= useState(false);
 
-    function submit(values) {
+    async function submit(values) {
         setShowError(false);
-        fetch('http://localhost:4000/user/login', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(values)
-        }).then(res=> {
-            if (res.status === 200) {
-                res.json()
-                    .then(json=> {
-                        Cookies.set('instagram-user', json.token, {expires: 30});
-                        history.push('/');
-                    });
-                return;
-            }
+        
+        try{
+            const res = await UserService.login(values);
+            const {token} = await res.json();
+            Cookies.set('instagram-user', token, {expires: 30});
+    
+            const user = await UserService.me();
+            setUser(user);
+            history.push('/');
+
+        } catch (err) {
             setShowError(true);
-        });
+        }
     }
 
     return (
@@ -61,6 +59,10 @@ export default function Login() {
 
                                 <div className="form-group mb-3 mx-auto">
                                     <button type="submit" className="btn btn-primary btn-lg btn-success">Login</button>
+                                </div>
+
+                                <div className="text-center">
+                                  Don't have an account? <Link to="/Register" className="Login__register-link">Register</Link>
                                 </div>
                             </Form>   
                 </Formik>

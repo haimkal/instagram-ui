@@ -1,15 +1,20 @@
 import Cookies from 'js-cookie';
-
+import environment from '../environments/index';
 export class UserService {
+
+    static getToken() {
+      return Cookies.get('instagram-user');
+    }
     
     static me() {
         const body = {
-            token: Cookies.get('instagram-user')
+            token: UserService.getToken()
           };
-        return fetch('http://localhost:4000/user/me', {
+        return fetch(environment.apiUrl+'/user/me', {
           method: 'POST',
           headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            Authorization: UserService.getToken()
           },
           body: JSON.stringify(body)
           }).then(res=> {
@@ -19,5 +24,25 @@ export class UserService {
             return res.json();
           });
     } 
+
+    static create (values) {
+        return fetch (environment.apiUrl+'/user', {
+          method: 'PUT',
+          headers: {
+              'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(values)
+      });
+    }
+
+    static login (values) {
+      return fetch(environment.apiUrl+'/user/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(values)
+      })
+    }
 }
 

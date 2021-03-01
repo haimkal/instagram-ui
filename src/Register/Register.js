@@ -6,19 +6,15 @@ import { registerSchema } from './register.schema';
 import {H2, LABEL} from '../StylesComponent/StylesComponent';
 import {useHistory} from 'react-router-dom';
 import Logo from '../Logo/Logo';
+import { UserService } from '../services/user.service';
 export default function Register(props) {
 
 const history = useHistory();
 const [showSuccess, setSuccess] = useState(false);
 
     function submit(values) {
-        fetch('http://localhost:4000/user', {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(values)
-        }).then(res=> { 
+        UserService.create(values)
+        .then(res=> { 
             if(res.status===201){
                 setSuccess(true);
                 setTimeout(()=> history.push('/login'), 2000);
