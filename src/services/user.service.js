@@ -44,5 +44,52 @@ export class UserService {
         body: JSON.stringify(values)
       })
     }
-}
+
+    static async getPosts (username) {
+        const res = await fetch (environment.apiUrl+'/user/'+ username +'/posts', {
+          headers: {
+            Authorization: UserService.getToken()
+          },
+        }); 
+       return res.json();
+      }
+
+      
+    static async get (username) {
+      const res = await fetch (environment.apiUrl+'/user/'+ username, {
+        headers: {
+          Authorization: UserService.getToken()
+        },
+      }); 
+     return res.json();
+    }
+
+       
+    static async search (username) {
+      const res = await fetch (environment.apiUrl+'/user?username='+ username, {
+        headers: {
+          Authorization: UserService.getToken()
+        },
+      }); 
+     return res.json();
+    }
+
+    static async editUser(values){
+      const user = JSON.parse(atob(UserService.getToken().split('.')[1]));
+      const res = await fetch (environment.apiUrl+`/user/edit/${user._id}`, {
+        method: 'POST',
+        headers: {
+          Authorization: UserService.getToken(),
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(values)
+      }); 
+      return res.json();
+
+    }
+
+
+    
+  }
+
 

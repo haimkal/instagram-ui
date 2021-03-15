@@ -1,3 +1,4 @@
+import Post from "../common/Post/Post";
 import environment from "../environments";
 import { UserService } from "./user.service";
 
@@ -19,6 +20,36 @@ export class PostService{
             });
             return res.json();
         }
-    
 
+    static async like (id) {
+        const res = await fetch (environment.apiUrl + '/post/' +id + '/like', {
+            method: 'POST',
+           
+            headers: {
+                Authorization: UserService.getToken(),
+                'Content-Type': 'application/json'
+            }
+                  
+            
+        });
+        // console.log('res from the like fetch:' +res);
+        return res.json();
+    }
+    
+    
+    static async unlike (id) {
+        const res = await fetch (environment.apiUrl + '/post/' +id + '/unlike', {
+            method: 'DELETE',
+           
+            headers: {
+                Authorization: UserService.getToken(),
+                'Content-Type': 'application/json'
+            }
+                  
+            
+        });
+        
+        return res.json();
+    }
+    
 }

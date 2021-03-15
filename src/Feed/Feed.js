@@ -15,7 +15,7 @@ export default function Feed() {
     return (
         <div className='feedContainer'>
             {posts.map(post=> (
-                <Post key={post._id} data={post} />
+                <Post key={post._id} post={post} />
             ))}
           
         </div>
