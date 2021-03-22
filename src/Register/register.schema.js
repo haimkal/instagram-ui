@@ -1,4 +1,6 @@
 import * as yup from 'yup';
+import environment from "../environments";
+
 
 export const registerSchema = yup.object().shape ({
     username: yup.string()
@@ -28,7 +30,7 @@ async function isUnique(field, value) { //Would be glad for explanation for this
     if (memo[field].hasOwnProperty(value)) { //this part connected to the next part or the return take me out?
         return memo[field][value];
     }
-    return await fetch(`http://localhost:4000/user/check?${field}=${value}`, {method: 'POST'})
+    return await fetch(`${environment.apiUrl}/user/check?${field}=${value}`, {method: 'POST'})
         .then(res=> res.json())
         .then(res=> {
             memo[field][value] = !res; //didn't understand this part and the conncetion to the backend, the res equals to true/false?

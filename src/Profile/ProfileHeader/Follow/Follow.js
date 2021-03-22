@@ -20,11 +20,11 @@ export default function Follow({otherUser}) {
 
 
    
-    // useEffect(() => {
-    //     setFollow(userToFollow.followers.includes(ownUserId))
-    //     setFollowers(userToFollow.followers.length)
+    useEffect(() => {
+        setFollow(userToFollow.followers.includes(ownUserId))
+        setFollowers(userToFollow.followers.length)
         
-    // }, [userToFollow])
+    }, [userToFollow])
     
     async function addFollow(){
         const edittedUser = await PostService.follow(otherUser._id);
