@@ -4,6 +4,7 @@ import { PostService } from '../services/post.service';
 import Avatar from '../common/Avatar/Avatar';
 
 import './PostPage.scss';
+import Comments from '../common/Comments/Comments';
 
 export default function PostPage() {
     const {id} = useParams();
@@ -40,6 +41,7 @@ export default function PostPage() {
                 <div>
                     <img src={'data:; base64,'+post.image} className="Post__image"/>
                 </div>
+                <Comments postId={post._id} />
         </div>
         )}
     </>

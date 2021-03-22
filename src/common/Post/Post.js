@@ -9,23 +9,32 @@ export default function Post({post}) {
     
  
     return (
-        <>
-    <div className="post">
-            <div className="post__avatarAndName">
-                <Avatar size="sm" image={post.user.avatar} />
-                {post.user.username}
-            </div>
-            <div className="post__createdAt post__createdAt--active">
+        
+    <div className="col-12 col-md-4">
+        <article className="post">
+            <header>
+                <div className="post__user">
+                     <Link to={'/profile/' + post.user.username}>
+							<Avatar size="md" image={post.user.avatar} />
+							<span className="post__user__username">{post.user.username}</span>
+						</Link>
+                </div>
+                <div className="post__createdAt post__createdAt--active">
                 <Link to={'/post/'+post._id}>
                      <ReactTimeAgo date={post.createdAt} locale="en-US" /> 
                 </Link>
             </div>
-            <div className="post__des">{post.description}</div>   
+            </header>
+          
+            <h1 className="post__des">{post.description}</h1>   
             <div>
-                <img className= "post__image" src={'data:; base64,'+post.image}/>
+                <Link to={'/post/'+post._id}>
+                    <img className="post__image" src={'data:; base64,'+post.image}/>
+                </Link>
             </div>
              <PostLike post={post} />
-        </div>
-        </>
+        </article>     
+    </div>
+        
     )
 }

@@ -88,6 +88,38 @@ export class UserService {
 
     }
 
+    static async follow (userId) {
+      const res = await fetch (environment.apiUrl + '/user/' +userId + '/follow', {
+      method: 'POST',
+       
+        headers: {
+            Authorization: UserService.getToken(),
+            'Content-Type': 'application/json'
+        }
+              
+        
+    });
+    console.log('user has been followed by you:', res);
+    return res.json();
+}
+
+  //   }
+  //   static async  addFollow (userId) {
+  //     const res = await fetch (environment.apiUrl + '/user/' +userId + '/follow', {
+  //         method: 'POST',
+         
+  //         headers: {
+  //             Authorization: UserService.getToken(),
+  //             'Content-Type': 'application/json'
+  //         }
+                
+          
+  //     });
+  //     console.log('res from the follow fetch:', res);
+  //     return res.json();
+  // }
+
+     
 
     
   }

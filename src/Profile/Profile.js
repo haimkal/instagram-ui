@@ -2,9 +2,7 @@
 import React, {useEffect, useState} from 'react'
 import { useParams } from 'react-router-dom';
 import Post from '../common/Post/Post';
-
 import {UserService} from '../services/user.service';
-
 import './Profile.scss'
 import ProfileHeader from './ProfileHeader/ProfileHeader';
 
@@ -26,16 +24,15 @@ export default function Profile() {
        }, [username]);
 
     return (
-        <>
+        <div>
             <ProfileHeader username={username} postNum={posts.length} />
             <hr />
             <div className="row">
             {posts.map(post=> (
                 <Post key={post._id} post={post} />
 
-            ))}
-                  
+            ))}  
             </div>
-        </>
+        </div>
     );
 }
