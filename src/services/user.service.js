@@ -103,21 +103,21 @@ export class UserService {
     return res.json();
 }
 
-  //   }
-  //   static async  addFollow (userId) {
-  //     const res = await fetch (environment.apiUrl + '/user/' +userId + '/follow', {
-  //         method: 'POST',
+    
+    static async  addFollow (userId) {
+      const res = await fetch (environment.apiUrl + '/user/' +userId + '/follow', {
+          method: 'POST',
          
-  //         headers: {
-  //             Authorization: UserService.getToken(),
-  //             'Content-Type': 'application/json'
-  //         }
+          headers: {
+              Authorization: UserService.getToken(),
+              'Content-Type': 'application/json'
+          }
                 
           
-  //     });
-  //     console.log('res from the follow fetch:', res);
-  //     return res.json();
-  // }
+      });
+      console.log('res from the follow fetch:', res);
+      return res.json();
+  }
 
      
 

@@ -1,50 +1,50 @@
-import React, { useContext, useEffect, useState } from 'react'
-import { PostService } from '../../../services/post.service';
-import { UserService } from '../../../services/user.service';
-import { UserContext } from '../../../user-context';
+// import React, { useContext, useEffect, useState } from 'react'
+// import { PostService } from '../../../services/post.service';
+// import { UserService } from '../../../services/user.service';
+// import { UserContext } from '../../../user-context';
 
 
 
-export default function Follow({otherUser}) {
+// export default function Follow({otherUser}) {
 
     
-    console.log(otherUser);
-    const {user} = useContext (UserContext);
-    const ownUserId = user._id;
+//     console.log(otherUser);
+//     const {user} = useContext (UserContext);
+//     const ownUserId = user._id;
 
-    const [followers, setFollowers] = useState (otherUser?.followers?.length ?? 0);
-    const [follow, setFollow] = useState(otherUser?.followers?.includes(ownUserId));
-    const [userToFollow, setUserToFollow] = useState (otherUser);
+//     const [followers, setFollowers] = useState (otherUser?.followers?.length ?? 0);
+//     const [isFollow, setIsFollow] = useState(otherUser?.followers?.includes(ownUserId));
+    
 
     
 
 
    
-    useEffect(() => {
-        setFollow(userToFollow.followers.includes(ownUserId))
-        setFollowers(userToFollow.followers.length)
+//     useEffect(() => {
+//         setIsFollow(userToFollow.followers.includes(ownUserId))
+//         setFollowers(userToFollow.followers.length)
         
-    }, [userToFollow])
+//     }, [followers, ])
     
-    async function addFollow(){
-        const edittedUser = await PostService.follow(otherUser._id);
-        console.log(edittedUser);
-        setUserToFollow(edittedUser);
-    }
+//     async function addFollow(){
+//         const edittedUser = await PostService.follow(otherUser._id);
+//         console.log(edittedUser);
+//         setFollowers(edittedUser);
+//     }
 
     
       
         
-    return (
-        <div>
-            {followers}
-           
-        </div>
-    )
+//     return (
+//         <div>
+//             {followers}
+//            <button
+//         </div>
+//     )
 
     
 
 
     
-}
+// }
    
